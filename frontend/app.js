@@ -46,13 +46,13 @@
     currentStepEl.textContent = num;
     totalStepsEl.textContent = total;
     stepActionEl.textContent = action || "";
-    stepResultEl.textContent = result ? "✓ " + result : "";
+    stepResultEl.textContent = result || "";
   }
 
   function appendStepLog(num, action, result) {
     const div = document.createElement("div");
     div.className = "step-log-item";
-    div.innerHTML = "<span class=\"num\">STEP " + num + "/10</span>: " + escapeHtml(action) + " — <span class=\"res\">" + escapeHtml(result || "") + "</span>";
+    div.innerHTML = "<span class=\"num\">Step " + num + "/10</span> " + escapeHtml(action) + " <span class=\"res\">" + escapeHtml(result || "") + "</span>";
     stepsLogEl.appendChild(div);
     stepsLogEl.scrollTop = stepsLogEl.scrollHeight;
   }
@@ -78,13 +78,15 @@
 
     let html = "<div class=\"results-grid\">";
     list.forEach(function (item, i) {
-      const name = item.team || item.name || "—";
+      /* Player awards have name + team; team winner has team only. Show name first when present. */
+      const primary = item.name || item.team || "—";
+      const secondary = item.name && item.team ? " (" + item.team + ")" : "";
       const prob = item.probability != null ? item.probability + "%" : (item.score != null ? item.score : "—");
       const crest = item.crest || "";
       html += "<div class=\"result-row\">";
       html += "<span class=\"rank\">" + (i + 1) + "</span>";
-      if (crest) html += "<img src=\"" + escapeHtml(crest) + "\" alt=\"\">";
-      html += "<span class=\"name\">" + escapeHtml(name) + "</span>";
+      if (crest) html += "<img src=\"" + escapeHtml(crest) + "\" alt=\"\" referrerpolicy=\"no-referrer\" loading=\"lazy\">";
+      html += "<span class=\"name\">" + escapeHtml(primary) + escapeHtml(secondary) + "</span>";
       html += "<span class=\"prob\">" + escapeHtml(String(prob)) + "</span>";
       html += "</div>";
     });

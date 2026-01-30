@@ -28,7 +28,7 @@ class Tools:
         "Argentina": {"code": "ARG", "confederation": "CONMEBOL", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png", "fifa_points": 1851, "world_cup_wins": 3, "world_cup_appearances": 18, "last_world_cup": "2022 (Winners)", "key_players": ["Lionel Messi", "Julian Alvarez", "Enzo Fernandez"], "squad_size": 26, "ovr_rating": 87},
         "France": {"code": "FRA", "confederation": "UEFA", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png", "fifa_points": 1842, "world_cup_wins": 2, "world_cup_appearances": 16, "last_world_cup": "2022 (Finalists)", "key_players": ["Kylian Mbappe", "Antoine Griezmann", "Aurelien Tchouameni"], "squad_size": 26, "ovr_rating": 86},
         "Brazil": {"code": "BRA", "confederation": "CONMEBOL", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png", "fifa_points": 1830, "world_cup_wins": 5, "world_cup_appearances": 22, "last_world_cup": "2022 (Quarter-Finals)", "key_players": ["Vinicius Jr", "Richarlison", "Casemiro"], "squad_size": 26, "ovr_rating": 85},
-        "England": {"code": "ENG", "confederation": "UEFA", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png", "fifa_points": 1797, "world_cup_wins": 1, "world_cup_appearances": 16, "last_world_cup": "2022 (Quarter-Finals)", "key_players": ["Harry Kane", "Jude Bellingham", "Phil Foden"], "squad_size": 26, "ovr_rating": 85},
+        "England": {"code": "ENG", "confederation": "UEFA", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png", "fifa_points": 1797, "world_cup_wins": 1, "world_cup_appearances": 16, "last_world_cup": "2022 (Quarter-Finals)", "key_players": ["Harry Kane", "Jude Bellingham", "Phil Foden"], "squad_size": 26, "ovr_rating": 85},
         "Spain": {"code": "ESP", "confederation": "UEFA", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png", "fifa_points": 1775, "world_cup_wins": 1, "world_cup_appearances": 16, "last_world_cup": "2022 (Round of 16)", "key_players": ["Pedri", "Rodri", "Lamine Yamal"], "squad_size": 26, "ovr_rating": 84},
         "Germany": {"code": "GER", "confederation": "UEFA", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png", "fifa_points": 1753, "world_cup_wins": 4, "world_cup_appearances": 20, "last_world_cup": "2022 (Group Stage)", "key_players": ["Jamal Musiala", "Florian Wirtz", "Ilkay Gundogan"], "squad_size": 26, "ovr_rating": 84},
         "Netherlands": {"code": "NED", "confederation": "UEFA", "flag": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png", "fifa_points": 1710, "world_cup_wins": 0, "world_cup_appearances": 11, "last_world_cup": "2022 (Quarter-Finals)", "key_players": ["Virgil van Dijk", "Memphis Depay", "Frenkie de Jong"], "squad_size": 26, "ovr_rating": 83},
@@ -216,7 +216,7 @@ class Tools:
         for p in players:
             name = p.get("name", "Unknown")
             team = p.get("team", p.get("nationality", ""))
-            crest = p.get("crest") or self.WORLD_CUP_TEAMS.get(team, {}).get("flag", "")
+            crest = (p.get("crest") or "") or (self.WORLD_CUP_TEAMS.get(team, {}).get("flag", "") if team else "")
             if award_type == "golden_ball":
                 s = p.get("rating", 80) * 0.4 + (p.get("goals", 0) or 0) * 0.3 + (p.get("assists", 0) or 0) * 0.3
             elif award_type == "golden_boot":
@@ -225,7 +225,7 @@ class Tools:
                 s = (p.get("clean_sheets", 0) or 0) * 0.5 + p.get("rating", 80) * 0.5
             else:
                 s = (p.get("rating", 80) * 0.5 + (p.get("goals", 0) or 0) * 0.3 + (p.get("assists", 0) or 0) * 0.2)
-            scored.append({"name": name, "team": team, "score": round(s, 1), "crest": crest, "shortName": team[:3].upper() if team else "?"})
+            scored.append({"name": name, "team": team, "score": round(s, 1), "crest": crest or "", "shortName": team[:3].upper() if team else "?"})
         scored.sort(key=lambda x: x["score"], reverse=True)
         top5 = scored[:5]
         total = sum(x["score"] for x in top5) or 1

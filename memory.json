@@ -16,7 +16,7 @@
       "step": 1,
       "action": "Fetch current FIFA rankings data",
       "result": "Retrieved rankings for 20 qualified teams",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Retrieved rankings for 20 qualified teams",
         "data": [
@@ -49,7 +49,7 @@
             "team": "England",
             "points": 1797,
             "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG"
           },
           {
@@ -187,7 +187,7 @@
       "step": 2,
       "action": "Fetch historical World Cup performance data",
       "result": "Processed data from 2014, 2018, 2022 tournaments",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Processed data from 2014, 2018, 2022 tournaments",
         "data": {
@@ -228,7 +228,7 @@
       "step": 3,
       "action": "Analyze team form and recent match results",
       "result": "Analyzed form for 15 teams",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Analyzed form for 15 teams",
         "data": {
@@ -299,7 +299,7 @@
       "step": 4,
       "action": "Calculate predictive scores using weighted factors (FIFA 25%, Historical 20%, Form 25%, Squad 20%, Home 10%)",
       "result": "Computed weighted scores for all teams",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Computed weighted scores for all teams",
         "data": {
@@ -348,7 +348,7 @@
           "4": {
             "team": "England",
             "score": 19.9,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
             "factors": {
               "fifa": 85.0,
@@ -420,7 +420,7 @@
           {
             "team": "England",
             "score": 19.9,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
             "factors": {
               "fifa": 85.0,
@@ -452,7 +452,7 @@
       "step": 5,
       "action": "Generate top 5 predictions with probabilities",
       "result": "Computed weighted scores for all teams",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Computed weighted scores for all teams",
         "data": {
@@ -501,7 +501,7 @@
           "4": {
             "team": "England",
             "score": 19.9,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
             "factors": {
               "fifa": 85.0,
@@ -573,7 +573,7 @@
           {
             "team": "England",
             "score": 19.9,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
             "factors": {
               "fifa": 85.0,
@@ -605,7 +605,7 @@
       "step": 6,
       "action": "Create visualization data",
       "result": "Visualization data ready",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Visualization data ready",
         "data": {
@@ -631,7 +631,7 @@
       "step": 7,
       "action": "Generate report",
       "result": "Report generated",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Report generated",
         "data": {
@@ -681,7 +681,7 @@
             "4": {
               "team": "England",
               "score": 19.9,
-              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
               "shortName": "ENG",
               "factors": {
                 "fifa": 85.0,
@@ -714,7 +714,7 @@
             "Squad strength (20%)",
             "Home advantage (10%)"
           ],
-          "generated_at": "2026-01-30T18:25:57Z"
+          "generated_at": "2026-01-30T18:45:54Z"
         }
       }
     },
@@ -722,7 +722,7 @@
       "step": 8,
       "action": "Save results to memory and file",
       "result": "Report saved to predictions/world_cup_winner.json",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Report saved to predictions/world_cup_winner.json",
         "data": {
@@ -734,7 +734,7 @@
       "step": 9,
       "action": "Format output for display",
       "result": "Results ready for display",
-      "timestamp": "2026-01-30T18:25:57Z",
+      "timestamp": "2026-01-30T18:45:54Z",
       "data": {
         "result": "Report saved to predictions/world_cup_winner.json",
         "data": {
@@ -791,7 +791,7 @@
       "4": {
         "team": "England",
         "score": 19.9,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
         "shortName": "ENG",
         "factors": {
           "fifa": 85.0,
@@ -863,7 +863,7 @@
       {
         "team": "England",
         "score": 19.9,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
         "shortName": "ENG",
         "factors": {
           "fifa": 85.0,
@@ -891,5 +891,5 @@
     ]
   },
   "workflow_status": "completed",
-  "updated_at": "2026-01-30T18:25:57Z"
+  "updated_at": "2026-01-30T18:45:54Z"
 }

@@ -1,50 +1,52 @@
 {
-  "goal": "Predict Young Player Award winner",
   "predictions": {
     "1": {
-      "name": "Bernardo Silva",
-      "score": 84.3,
-      "nationality": "Portugal",
-      "team": "Portugal",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png"
+      "name": "Harry Kane",
+      "team": "England",
+      "score": 58.8,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
+      "shortName": "ENG",
+      "probability": 21.9
     },
     "2": {
-      "name": "Vinicius Jr",
-      "score": 80.6,
-      "nationality": "Brazil",
-      "team": "Brazil",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png"
+      "name": "Kylian Mbappe",
+      "team": "France",
+      "score": 58.7,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+      "shortName": "FRA",
+      "probability": 21.9
     },
     "3": {
-      "name": "Idrissa Gueye",
-      "score": 79.9,
-      "nationality": "Senegal",
-      "team": "Senegal",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/50px-Flag_of_Senegal.svg.png"
+      "name": "Lionel Messi",
+      "team": "Argentina",
+      "score": 57.1,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+      "shortName": "ARG",
+      "probability": 21.3
     },
     "4": {
-      "name": "Harry Kane",
-      "score": 79.5,
-      "nationality": "England",
-      "team": "England",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png"
+      "name": "Vinicius Jr",
+      "team": "Brazil",
+      "score": 47.6,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+      "shortName": "BRA",
+      "probability": 17.7
     },
     "5": {
-      "name": "Edson Alvarez",
-      "score": 79.4,
-      "nationality": "Mexico",
-      "team": "Mexico",
-      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/50px-Flag_of_Mexico.svg.png"
+      "name": "Kevin De Bruyne",
+      "team": "Belgium",
+      "score": 46.2,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/50px-Flag_of_Belgium.svg.png",
+      "shortName": "BEL",
+      "probability": 17.2
     }
   },
-  "generated_at": "2026-01-30T17:43:40.634031Z",
-  "data_source": "Wikipedia & Team Database",
-  "algorithm_version": "2.0 - Advanced Multi-Factor Model",
-  "confidence_levels": {
-    "Very High": "Top contender with strong fundamentals",
-    "High": "Strong candidate with multiple positive factors",
-    "Medium": "Balanced chances with some concerns",
-    "Low": "Underdog with potential for upsets",
-    "Speculative": "Based on limited data or projections"
-  }
+  "key_factors": [
+    "FIFA ranking (25%)",
+    "Historical performance (20%)",
+    "Recent form (25%)",
+    "Squad strength (20%)",
+    "Home advantage (10%)"
+  ],
+  "generated_at": "2026-01-30T18:45:41Z"
 }

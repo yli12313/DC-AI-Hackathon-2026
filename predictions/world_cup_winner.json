@@ -45,7 +45,7 @@
     "4": {
       "team": "England",
       "score": 19.9,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
       "shortName": "ENG",
       "factors": {
         "fifa": 85.0,
@@ -78,5 +78,5 @@
     "Squad strength (20%)",
     "Home advantage (10%)"
   ],
-  "generated_at": "2026-01-30T18:25:57Z"
+  "generated_at": "2026-01-30T18:45:54Z"
 }
