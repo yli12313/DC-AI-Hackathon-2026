@@ -78,16 +78,21 @@
 
     let html = "<div class=\"results-grid\">";
     list.forEach(function (item, i) {
-      /* Player awards have name + team; team winner has team only. Show name first when present. */
       const primary = item.name || item.team || "—";
       const secondary = item.name && item.team ? " (" + item.team + ")" : "";
       const prob = item.probability != null ? item.probability + "%" : (item.score != null ? item.score : "—");
       const crest = item.crest || "";
+      const description = item.description || "";
+      const reason = item.reason || "";
+      html += "<div class=\"result-card\">";
       html += "<div class=\"result-row\">";
       html += "<span class=\"rank\">" + (i + 1) + "</span>";
       if (crest) html += "<img src=\"" + escapeHtml(crest) + "\" alt=\"\" referrerpolicy=\"no-referrer\" loading=\"lazy\">";
       html += "<span class=\"name\">" + escapeHtml(primary) + escapeHtml(secondary) + "</span>";
       html += "<span class=\"prob\">" + escapeHtml(String(prob)) + "</span>";
+      html += "</div>";
+      if (description) html += "<p class=\"result-description\">" + escapeHtml(description) + "</p>";
+      if (reason) html += "<p class=\"result-reason\">" + escapeHtml(reason) + "</p>";
       html += "</div>";
     });
     html += "</div>";

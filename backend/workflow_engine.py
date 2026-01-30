@@ -154,7 +154,7 @@ class WorkflowEngine:
             out = t.fetch_historical_data("World Cup")
             return out["result"], out
         if "analyze team form" in s or "team form" in s:
-            teams = list(t.WORLD_CUP_TEAMS.keys())[:15]
+            teams = t.get_team_names()[:15]
             out = t.analyze_team_form(teams)
             return out["result"], out
         if "calculate predictive" in s or "weighted factors" in s:

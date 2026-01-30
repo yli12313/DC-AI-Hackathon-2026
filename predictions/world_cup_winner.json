@@ -1,74 +1,84 @@
 {
   "predictions": {
     "1": {
-      "team": "Brazil",
-      "score": 24.5,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-      "shortName": "BRA",
-      "factors": {
-        "fifa": 90.0,
-        "historical": 100,
-        "form": 80,
-        "squad": 37.5,
-        "home": 0
-      },
-      "probability": 22.5
-    },
-    "2": {
       "team": "Argentina",
-      "score": 24.3,
+      "score": 24.5,
       "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
       "shortName": "ARG",
       "factors": {
         "fifa": 100.0,
         "historical": 80,
         "form": 80,
-        "squad": 42.5,
+        "squad": 45.0,
         "home": 0
       },
-      "probability": 22.3
+      "probability": 24.6,
+      "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
+      "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
     },
-    "3": {
+    "2": {
       "team": "France",
-      "score": 22.3,
+      "score": 22.7,
       "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
       "shortName": "FRA",
       "factors": {
-        "fifa": 95.0,
+        "fifa": 95.65217391304348,
         "historical": 60,
         "form": 80,
-        "squad": 40.0,
+        "squad": 45.0,
         "home": 0
       },
-      "probability": 20.5
+      "probability": 22.8,
+      "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
+      "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+    },
+    "3": {
+      "team": "Brazil",
+      "score": 19.7,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+      "shortName": "BRA",
+      "factors": {
+        "fifa": 91.30434782608697,
+        "historical": 100,
+        "form": 20,
+        "squad": 42.5,
+        "home": 0
+      },
+      "probability": 19.8,
+      "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
+      "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
     },
     "4": {
+      "team": "Canada",
+      "score": 17.6,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
+      "shortName": "CAN",
+      "factors": {
+        "fifa": 91.30434782608697,
+        "historical": 20,
+        "form": 20,
+        "squad": 42.5,
+        "home": 100
+      },
+      "probability": 17.7,
+      "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
+      "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
+    },
+    "5": {
       "team": "England",
-      "score": 19.9,
+      "score": 15.1,
       "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
       "shortName": "ENG",
       "factors": {
-        "fifa": 85.0,
+        "fifa": 86.95652173913044,
         "historical": 40,
-        "form": 80,
-        "squad": 37.5,
-        "home": 0
-      },
-      "probability": 18.3
-    },
-    "5": {
-      "team": "Germany",
-      "score": 17.8,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
-      "shortName": "GER",
-      "factors": {
-        "fifa": 75.0,
-        "historical": 100,
         "form": 20,
-        "squad": 35.0,
+        "squad": 42.5,
         "home": 0
       },
-      "probability": 16.4
+      "probability": 15.2,
+      "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
+      "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
     }
   },
   "key_factors": [
@@ -78,5 +88,5 @@
     "Squad strength (20%)",
     "Home advantage (10%)"
   ],
-  "generated_at": "2026-01-30T18:45:54Z"
+  "generated_at": "2026-01-30T19:12:32Z"
 }
