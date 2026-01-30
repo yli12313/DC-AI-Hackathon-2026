@@ -59,6 +59,40 @@ YOUNG_PLAYER_FALLBACK_NAMES = [
     ("Gavi", "Spain"), ("Eduardo Camavinga", "France"), ("Nico Williams", "Spain"),
 ]
 
+# Team name -> flag URL fallback so every player gets correct country picture (e.g. Croatia for Luka Modric).
+# Inline Croatia and other key flags so crest is never empty even if wiki fails to load.
+TEAM_CREST_FALLBACK: Dict[str, str] = {
+    "Croatia": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+    "Argentina": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+    "France": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+    "Brazil": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+    "England": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
+    "Spain": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
+    "Germany": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+    "Portugal": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+    "Belgium": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/50px-Flag_of_Belgium.svg.png",
+    "Netherlands": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png",
+    "Uruguay": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/50px-Flag_of_Uruguay.svg.png",
+    "USA": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/50px-Flag_of_the_United_States.svg.png",
+    "Mexico": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/50px-Flag_of_Mexico.svg.png",
+    "Japan": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/50px-Flag_of_Japan.svg.png",
+    "South Korea": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/50px-Flag_of_South_Korea.svg.png",
+    "Australia": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/50px-Flag_of_Australia_%28converted%29.svg.png",
+    "Morocco": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/50px-Flag_of_Morocco.svg.png",
+    "Senegal": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/50px-Flag_of_Senegal.svg.png",
+    "Colombia": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Colombia.svg/50px-Flag_of_Colombia.svg.png",
+    "Canada": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
+}
+if wiki and getattr(wiki, "FLAG_BY_CODE", None):
+    _CODE_BY_TEAM = {
+        "Ecuador": "ECU", "Paraguay": "PAR", "Switzerland": "SUI", "Scotland": "SCO",
+        "Austria": "AUT", "Norway": "NOR", "Panama": "PAN", "Haiti": "HAI", "Curaçao": "CUW",
+    }
+    for team, code in _CODE_BY_TEAM.items():
+        url = wiki.FLAG_BY_CODE.get(code, "")
+        if url and team not in TEAM_CREST_FALLBACK:
+            TEAM_CREST_FALLBACK[team] = url
+
 
 class Tools:
     """Tool/API actions. All team and player data from Wikipedia."""
@@ -340,7 +374,7 @@ class Tools:
         for p in players:
             name = p.get("name", "Unknown")
             team = p.get("team", p.get("nationality", ""))
-            crest = (self.WORLD_CUP_TEAMS.get(team, {}).get("flag", "") if team else "") or (p.get("crest") or "")
+            crest = (self.WORLD_CUP_TEAMS.get(team, {}).get("flag", "") if team else "") or TEAM_CREST_FALLBACK.get(team, "") or (p.get("crest") or "")
             if award_type == "golden_ball":
                 s = self._score_golden_ball(p)
             elif award_type == "golden_boot":
@@ -365,6 +399,9 @@ class Tools:
         for i, x in enumerate(top5):
             x["probability"] = round(100 * x["score"] / total, 1)
             x["description"], x["reason"] = self._player_prediction_description_reason(x, award_type, i + 1)
+            team = x.get("team", "")
+            if team and (not x.get("crest") or not str(x.get("crest", "")).startswith("http")):
+                x["crest"] = TEAM_CREST_FALLBACK.get(team, "") or x.get("crest", "")
         data = {str(i + 1): top5[i] for i in range(len(top5))}
         return {"result": f"Computed {award_type} scores", "data": data, "top5": top5}
 
@@ -372,22 +409,22 @@ class Tools:
         """Return list of known star players when rosters are empty."""
         self._ensure_teams()
         teams = self.WORLD_CUP_TEAMS
-        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "")} for n, t in GOLDEN_BALL_FALLBACK_NAMES if t in teams]
+        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "") or TEAM_CREST_FALLBACK.get(t, "")} for n, t in GOLDEN_BALL_FALLBACK_NAMES if t in teams]
 
     def _golden_boot_fallback_candidates(self) -> List[Dict[str, Any]]:
         self._ensure_teams()
         teams = self.WORLD_CUP_TEAMS
-        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "")} for n, t in GOLDEN_BOOT_FALLBACK_NAMES if t in teams]
+        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "") or TEAM_CREST_FALLBACK.get(t, "")} for n, t in GOLDEN_BOOT_FALLBACK_NAMES if t in teams]
 
     def _golden_glove_fallback_candidates(self) -> List[Dict[str, Any]]:
         self._ensure_teams()
         teams = self.WORLD_CUP_TEAMS
-        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "")} for n, t in GOLDEN_GLOVE_FALLBACK_NAMES if t in teams]
+        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "") or TEAM_CREST_FALLBACK.get(t, "")} for n, t in GOLDEN_GLOVE_FALLBACK_NAMES if t in teams]
 
     def _young_player_fallback_candidates(self) -> List[Dict[str, Any]]:
         self._ensure_teams()
         teams = self.WORLD_CUP_TEAMS
-        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "")} for n, t in YOUNG_PLAYER_FALLBACK_NAMES if t in teams]
+        return [{"name": n, "team": t, "crest": teams.get(t, {}).get("flag", "") or TEAM_CREST_FALLBACK.get(t, "")} for n, t in YOUNG_PLAYER_FALLBACK_NAMES if t in teams]
 
     def _enrich_goalkeepers(self, players: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Merge known keeper stats (clean_sheets, saves, rating) from Wikipedia module."""
