@@ -1,0 +1,82 @@
+{
+  "predictions": {
+    "1": {
+      "team": "Brazil",
+      "score": 24.5,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+      "shortName": "BRA",
+      "factors": {
+        "fifa": 90.0,
+        "historical": 100,
+        "form": 80,
+        "squad": 37.5,
+        "home": 0
+      },
+      "probability": 22.5
+    },
+    "2": {
+      "team": "Argentina",
+      "score": 24.3,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+      "shortName": "ARG",
+      "factors": {
+        "fifa": 100.0,
+        "historical": 80,
+        "form": 80,
+        "squad": 42.5,
+        "home": 0
+      },
+      "probability": 22.3
+    },
+    "3": {
+      "team": "France",
+      "score": 22.3,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+      "shortName": "FRA",
+      "factors": {
+        "fifa": 95.0,
+        "historical": 60,
+        "form": 80,
+        "squad": 40.0,
+        "home": 0
+      },
+      "probability": 20.5
+    },
+    "4": {
+      "team": "England",
+      "score": 19.9,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+      "shortName": "ENG",
+      "factors": {
+        "fifa": 85.0,
+        "historical": 40,
+        "form": 80,
+        "squad": 37.5,
+        "home": 0
+      },
+      "probability": 18.3
+    },
+    "5": {
+      "team": "Germany",
+      "score": 17.8,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+      "shortName": "GER",
+      "factors": {
+        "fifa": 75.0,
+        "historical": 100,
+        "form": 20,
+        "squad": 35.0,
+        "home": 0
+      },
+      "probability": 16.4
+    }
+  },
+  "key_factors": [
+    "FIFA ranking (25%)",
+    "Historical performance (20%)",
+    "Recent form (25%)",
+    "Squad strength (20%)",
+    "Home advantage (10%)"
+  ],
+  "generated_at": "2026-01-30T18:25:57Z"
+}

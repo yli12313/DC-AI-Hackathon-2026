@@ -1,5 +1,8 @@
 """
-Memory System for Workflow Execution
+Memory System for World Cup 2026 Prediction Workflow
+
+Stores goal, plan, execution_log (step, action, result, timestamp), final_output.
+Persists to memory.json.
 """
 
 import json
@@ -9,105 +12,81 @@ from typing import Dict, List, Any, Optional
 
 
 class Memory:
-    """JSON-based memory system for workflow execution"""
-    
-    def __init__(self, memory_file: str = "memory/workflow_memory.json"):
+    """JSON-based memory for workflow execution."""
+
+    def __init__(self, memory_file: str = "memory.json"):
         self.memory_file = Path(memory_file)
-        self.memory_file.parent.mkdir(exist_ok=True)
-        self.memory = self._load_memory()
-    
-    def _load_memory(self) -> Dict[str, Any]:
-        """Load memory from file or create new"""
+        self.memory_file.parent.mkdir(parents=True, exist_ok=True)
+        self.memory = self._load()
+
+    def _load(self) -> Dict[str, Any]:
         if self.memory_file.exists():
             try:
-                with open(self.memory_file, "r") as f:
+                with open(self.memory_file, "r", encoding="utf-8") as f:
                     return json.load(f)
-            except (json.JSONDecodeError, FileNotFoundError):
+            except (json.JSONDecodeError, IOError):
                 pass
-        return self._create_empty_memory()
-    
-    def _create_empty_memory(self) -> Dict[str, Any]:
-        """Create empty memory structure"""
+        return self._empty()
+
+    def _empty(self) -> Dict[str, Any]:
         return {
             "goal": "",
             "plan": [],
             "execution_log": [],
             "final_output": {},
             "workflow_status": "idle",
-            "created_at": None,
-            "updated_at": None
+            "updated_at": None,
         }
-    
-    def initialize_workflow(self, goal: str, plan: List[str]) -> Dict[str, Any]:
-        """Initialize memory for a new workflow"""
+
+    def start_workflow(self, goal: str, plan: List[str]) -> None:
+        """Initialize for a new workflow run."""
         self.memory = {
             "goal": goal,
             "plan": plan,
             "execution_log": [],
             "final_output": {},
             "workflow_status": "running",
-            "created_at": datetime.utcnow().isoformat() + "Z",
-            "updated_at": datetime.utcnow().isoformat() + "Z"
+            "updated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         }
-        self._save_memory()
-        return self.memory
-    
-    def update_step(self, step_number: int, action: str, result: str, data: Any = None) -> Dict[str, Any]:
-        """Update memory with step execution result"""
-        step_log = {
-            "step": step_number,
+        self._save()
+
+    def log_step(self, step: int, action: str, result: str, data: Any = None) -> None:
+        """Append one execution step to the log."""
+        entry = {
+            "step": step,
             "action": action,
             "result": result,
-            "data": data,
-            "timestamp": datetime.utcnow().isoformat() + "Z"
+            "timestamp": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
         }
-        
-        self.memory["execution_log"].append(step_log)
-        self.memory["updated_at"] = datetime.utcnow().isoformat() + "Z"
-        self._save_memory()
-        
-        return step_log
-    
+        if data is not None:
+            entry["data"] = data
+        self.memory.setdefault("execution_log", []).append(entry)
+        self.memory["updated_at"] = entry["timestamp"]
+        self._save()
+
     def set_final_output(self, output: Dict[str, Any]) -> None:
-        """Set the final output of the workflow"""
+        """Store final predictions and mark workflow complete."""
         self.memory["final_output"] = output
         self.memory["workflow_status"] = "completed"
-        self.memory["updated_at"] = datetime.utcnow().isoformat() + "Z"
-        self._save_memory()
-    
-    def set_error(self, error_message: str) -> None:
-        """Mark workflow as failed with error"""
+        self.memory["updated_at"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        self._save()
+
+    def set_error(self, message: str) -> None:
+        """Mark workflow as failed."""
         self.memory["workflow_status"] = "error"
-        self.memory["error"] = error_message
-        self.memory["updated_at"] = datetime.utcnow().isoformat() + "Z"
-        self._save_memory()
-    
-    def get_current_state(self) -> Dict[str, Any]:
-        """Get current memory state"""
-        return self.memory
-    
-    def get_execution_log(self) -> List[Dict[str, Any]]:
-        """Get full execution log"""
-        return self.memory.get("execution_log", [])
-    
-    def get_step_count(self) -> int:
-        """Get number of executed steps"""
-        return len(self.memory.get("execution_log", []))
-    
-    def is_complete(self) -> bool:
-        """Check if workflow is complete"""
-        return self.memory.get("workflow_status") == "completed"
-    
+        self.memory["error"] = message
+        self.memory["updated_at"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+        self._save()
+
+    def get_state(self) -> Dict[str, Any]:
+        """Return full memory state."""
+        return dict(self.memory)
+
     def reset(self) -> None:
-        """Reset memory to empty state"""
-        self.memory = self._create_empty_memory()
-        self._save_memory()
-    
-    def _save_memory(self) -> None:
-        """Save memory to file"""
-        with open(self.memory_file, "w") as f:
+        """Clear memory to initial state."""
+        self.memory = self._empty()
+        self._save()
+
+    def _save(self) -> None:
+        with open(self.memory_file, "w", encoding="utf-8") as f:
             json.dump(self.memory, f, indent=2)
-    
-    def export_memory(self) -> str:
-        """Export memory as formatted JSON string"""
-        return json.dumps(self.memory, indent=2)

@@ -1,0 +1,895 @@
+{
+  "goal": "Predict the World Cup 2026 winner",
+  "plan": [
+    "Fetch current FIFA rankings data",
+    "Fetch historical World Cup performance data",
+    "Analyze team form and recent match results",
+    "Calculate predictive scores using weighted factors (FIFA 25%, Historical 20%, Form 25%, Squad 20%, Home 10%)",
+    "Generate top 5 predictions with probabilities",
+    "Create visualization data",
+    "Generate report",
+    "Save results to memory and file",
+    "Format output for display"
+  ],
+  "execution_log": [
+    {
+      "step": 1,
+      "action": "Fetch current FIFA rankings data",
+      "result": "Retrieved rankings for 20 qualified teams",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Retrieved rankings for 20 qualified teams",
+        "data": [
+          {
+            "rank": 1,
+            "team": "Argentina",
+            "points": 1851,
+            "confederation": "CONMEBOL",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+            "shortName": "ARG"
+          },
+          {
+            "rank": 2,
+            "team": "France",
+            "points": 1842,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA"
+          },
+          {
+            "rank": 3,
+            "team": "Brazil",
+            "points": 1830,
+            "confederation": "CONMEBOL",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+            "shortName": "BRA"
+          },
+          {
+            "rank": 4,
+            "team": "England",
+            "points": 1797,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "shortName": "ENG"
+          },
+          {
+            "rank": 5,
+            "team": "Spain",
+            "points": 1775,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
+            "shortName": "ESP"
+          },
+          {
+            "rank": 6,
+            "team": "Germany",
+            "points": 1753,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+            "shortName": "GER"
+          },
+          {
+            "rank": 7,
+            "team": "Netherlands",
+            "points": 1710,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png",
+            "shortName": "NED"
+          },
+          {
+            "rank": 8,
+            "team": "Portugal",
+            "points": 1697,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+            "shortName": "POR"
+          },
+          {
+            "rank": 9,
+            "team": "Belgium",
+            "points": 1684,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/50px-Flag_of_Belgium.svg.png",
+            "shortName": "BEL"
+          },
+          {
+            "rank": 10,
+            "team": "Italy",
+            "points": 1731,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/50px-Flag_of_Italy.svg.png",
+            "shortName": "ITA"
+          },
+          {
+            "rank": 11,
+            "team": "Croatia",
+            "points": 1664,
+            "confederation": "UEFA",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+            "shortName": "CRO"
+          },
+          {
+            "rank": 12,
+            "team": "Uruguay",
+            "points": 1644,
+            "confederation": "CONMEBOL",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/50px-Flag_of_Uruguay.svg.png",
+            "shortName": "URU"
+          },
+          {
+            "rank": 13,
+            "team": "USA",
+            "points": 1611,
+            "confederation": "CONCACAF",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/50px-Flag_of_the_United_States.svg.png",
+            "shortName": "USA"
+          },
+          {
+            "rank": 14,
+            "team": "Mexico",
+            "points": 1597,
+            "confederation": "CONCACAF",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/50px-Flag_of_Mexico.svg.png",
+            "shortName": "MEX"
+          },
+          {
+            "rank": 15,
+            "team": "Japan",
+            "points": 1586,
+            "confederation": "AFC",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/50px-Flag_of_Japan.svg.png",
+            "shortName": "JPN"
+          },
+          {
+            "rank": 16,
+            "team": "South Korea",
+            "points": 1575,
+            "confederation": "AFC",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/50px-Flag_of_South_Korea.svg.png",
+            "shortName": "KOR"
+          },
+          {
+            "rank": 17,
+            "team": "Morocco",
+            "points": 1553,
+            "confederation": "CAF",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/50px-Flag_of_Morocco.svg.png",
+            "shortName": "MAR"
+          },
+          {
+            "rank": 18,
+            "team": "Senegal",
+            "points": 1542,
+            "confederation": "CAF",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/50px-Flag_of_Senegal.svg.png",
+            "shortName": "SEN"
+          },
+          {
+            "rank": 19,
+            "team": "Colombia",
+            "points": 1624,
+            "confederation": "CONMEBOL",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Colombia.svg/50px-Flag_of_Colombia.svg.png",
+            "shortName": "COL"
+          },
+          {
+            "rank": 20,
+            "team": "Australia",
+            "points": 1564,
+            "confederation": "AFC",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/50px-Flag_of_Australia_%28converted%29.svg.png",
+            "shortName": "AUS"
+          }
+        ]
+      }
+    },
+    {
+      "step": 2,
+      "action": "Fetch historical World Cup performance data",
+      "result": "Processed data from 2014, 2018, 2022 tournaments",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Processed data from 2014, 2018, 2022 tournaments",
+        "data": {
+          "2022": {
+            "winner": "Argentina",
+            "runner_up": "France",
+            "third": "Croatia",
+            "fourth": "Morocco",
+            "host": "Qatar",
+            "top_scorer": "Kylian Mbappe",
+            "golden_ball": "Lionel Messi",
+            "golden_glove": "Emiliano Martinez"
+          },
+          "2018": {
+            "winner": "France",
+            "runner_up": "Croatia",
+            "third": "Belgium",
+            "fourth": "England",
+            "host": "Russia",
+            "top_scorer": "Harry Kane",
+            "golden_ball": "Luka Modric",
+            "golden_glove": "Thibaut Courtois"
+          },
+          "2014": {
+            "winner": "Germany",
+            "runner_up": "Argentina",
+            "third": "Netherlands",
+            "fourth": "Brazil",
+            "host": "Brazil",
+            "top_scorer": "James Rodriguez",
+            "golden_ball": "Lionel Messi",
+            "golden_glove": "Manuel Neuer"
+          }
+        }
+      }
+    },
+    {
+      "step": 3,
+      "action": "Analyze team form and recent match results",
+      "result": "Analyzed form for 15 teams",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Analyzed form for 15 teams",
+        "data": {
+          "Argentina": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Winners)"
+          },
+          "France": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Finalists)"
+          },
+          "Brazil": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Quarter-Finals)"
+          },
+          "England": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Quarter-Finals)"
+          },
+          "Spain": {
+            "form": "Average",
+            "last_world_cup": "2022 (Round of 16)"
+          },
+          "Germany": {
+            "form": "Poor",
+            "last_world_cup": "2022 (Group Stage)"
+          },
+          "Netherlands": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Quarter-Finals)"
+          },
+          "Portugal": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Quarter-Finals)"
+          },
+          "Belgium": {
+            "form": "Poor",
+            "last_world_cup": "2022 (Group Stage)"
+          },
+          "Italy": {
+            "form": "Poor",
+            "last_world_cup": "2022 (Did not qualify)"
+          },
+          "Croatia": {
+            "form": "Very Good",
+            "last_world_cup": "2022 (Third Place)"
+          },
+          "Uruguay": {
+            "form": "Excellent",
+            "last_world_cup": "2022 (Quarter-Finals)"
+          },
+          "USA": {
+            "form": "Average",
+            "last_world_cup": "2022 (Round of 16)"
+          },
+          "Mexico": {
+            "form": "Poor",
+            "last_world_cup": "2022 (Group Stage)"
+          },
+          "Japan": {
+            "form": "Average",
+            "last_world_cup": "2022 (Round of 16)"
+          }
+        }
+      }
+    },
+    {
+      "step": 4,
+      "action": "Calculate predictive scores using weighted factors (FIFA 25%, Historical 20%, Form 25%, Squad 20%, Home 10%)",
+      "result": "Computed weighted scores for all teams",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Computed weighted scores for all teams",
+        "data": {
+          "1": {
+            "team": "Brazil",
+            "score": 24.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+            "shortName": "BRA",
+            "factors": {
+              "fifa": 90.0,
+              "historical": 100,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 22.5
+          },
+          "2": {
+            "team": "Argentina",
+            "score": 24.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+            "shortName": "ARG",
+            "factors": {
+              "fifa": 100.0,
+              "historical": 80,
+              "form": 80,
+              "squad": 42.5,
+              "home": 0
+            },
+            "probability": 22.3
+          },
+          "3": {
+            "team": "France",
+            "score": 22.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "factors": {
+              "fifa": 95.0,
+              "historical": 60,
+              "form": 80,
+              "squad": 40.0,
+              "home": 0
+            },
+            "probability": 20.5
+          },
+          "4": {
+            "team": "England",
+            "score": 19.9,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "shortName": "ENG",
+            "factors": {
+              "fifa": 85.0,
+              "historical": 40,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 18.3
+          },
+          "5": {
+            "team": "Germany",
+            "score": 17.8,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+            "shortName": "GER",
+            "factors": {
+              "fifa": 75.0,
+              "historical": 100,
+              "form": 20,
+              "squad": 35.0,
+              "home": 0
+            },
+            "probability": 16.4
+          }
+        },
+        "top5": [
+          {
+            "team": "Brazil",
+            "score": 24.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+            "shortName": "BRA",
+            "factors": {
+              "fifa": 90.0,
+              "historical": 100,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 22.5
+          },
+          {
+            "team": "Argentina",
+            "score": 24.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+            "shortName": "ARG",
+            "factors": {
+              "fifa": 100.0,
+              "historical": 80,
+              "form": 80,
+              "squad": 42.5,
+              "home": 0
+            },
+            "probability": 22.3
+          },
+          {
+            "team": "France",
+            "score": 22.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "factors": {
+              "fifa": 95.0,
+              "historical": 60,
+              "form": 80,
+              "squad": 40.0,
+              "home": 0
+            },
+            "probability": 20.5
+          },
+          {
+            "team": "England",
+            "score": 19.9,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "shortName": "ENG",
+            "factors": {
+              "fifa": 85.0,
+              "historical": 40,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 18.3
+          },
+          {
+            "team": "Germany",
+            "score": 17.8,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+            "shortName": "GER",
+            "factors": {
+              "fifa": 75.0,
+              "historical": 100,
+              "form": 20,
+              "squad": 35.0,
+              "home": 0
+            },
+            "probability": 16.4
+          }
+        ]
+      }
+    },
+    {
+      "step": 5,
+      "action": "Generate top 5 predictions with probabilities",
+      "result": "Computed weighted scores for all teams",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Computed weighted scores for all teams",
+        "data": {
+          "1": {
+            "team": "Brazil",
+            "score": 24.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+            "shortName": "BRA",
+            "factors": {
+              "fifa": 90.0,
+              "historical": 100,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 22.5
+          },
+          "2": {
+            "team": "Argentina",
+            "score": 24.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+            "shortName": "ARG",
+            "factors": {
+              "fifa": 100.0,
+              "historical": 80,
+              "form": 80,
+              "squad": 42.5,
+              "home": 0
+            },
+            "probability": 22.3
+          },
+          "3": {
+            "team": "France",
+            "score": 22.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "factors": {
+              "fifa": 95.0,
+              "historical": 60,
+              "form": 80,
+              "squad": 40.0,
+              "home": 0
+            },
+            "probability": 20.5
+          },
+          "4": {
+            "team": "England",
+            "score": 19.9,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "shortName": "ENG",
+            "factors": {
+              "fifa": 85.0,
+              "historical": 40,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 18.3
+          },
+          "5": {
+            "team": "Germany",
+            "score": 17.8,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+            "shortName": "GER",
+            "factors": {
+              "fifa": 75.0,
+              "historical": 100,
+              "form": 20,
+              "squad": 35.0,
+              "home": 0
+            },
+            "probability": 16.4
+          }
+        },
+        "top5": [
+          {
+            "team": "Brazil",
+            "score": 24.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+            "shortName": "BRA",
+            "factors": {
+              "fifa": 90.0,
+              "historical": 100,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 22.5
+          },
+          {
+            "team": "Argentina",
+            "score": 24.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+            "shortName": "ARG",
+            "factors": {
+              "fifa": 100.0,
+              "historical": 80,
+              "form": 80,
+              "squad": 42.5,
+              "home": 0
+            },
+            "probability": 22.3
+          },
+          {
+            "team": "France",
+            "score": 22.3,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "factors": {
+              "fifa": 95.0,
+              "historical": 60,
+              "form": 80,
+              "squad": 40.0,
+              "home": 0
+            },
+            "probability": 20.5
+          },
+          {
+            "team": "England",
+            "score": 19.9,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+            "shortName": "ENG",
+            "factors": {
+              "fifa": 85.0,
+              "historical": 40,
+              "form": 80,
+              "squad": 37.5,
+              "home": 0
+            },
+            "probability": 18.3
+          },
+          {
+            "team": "Germany",
+            "score": 17.8,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+            "shortName": "GER",
+            "factors": {
+              "fifa": 75.0,
+              "historical": 100,
+              "form": 20,
+              "squad": 35.0,
+              "home": 0
+            },
+            "probability": 16.4
+          }
+        ]
+      }
+    },
+    {
+      "step": 6,
+      "action": "Create visualization data",
+      "result": "Visualization data ready",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Visualization data ready",
+        "data": {
+          "labels": [
+            "Brazil",
+            "Argentina",
+            "France",
+            "England",
+            "Germany"
+          ],
+          "values": [
+            22.5,
+            22.3,
+            20.5,
+            18.3,
+            16.4
+          ],
+          "type": "bar"
+        }
+      }
+    },
+    {
+      "step": 7,
+      "action": "Generate report",
+      "result": "Report generated",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Report generated",
+        "data": {
+          "predictions": {
+            "1": {
+              "team": "Brazil",
+              "score": 24.5,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+              "shortName": "BRA",
+              "factors": {
+                "fifa": 90.0,
+                "historical": 100,
+                "form": 80,
+                "squad": 37.5,
+                "home": 0
+              },
+              "probability": 22.5
+            },
+            "2": {
+              "team": "Argentina",
+              "score": 24.3,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+              "shortName": "ARG",
+              "factors": {
+                "fifa": 100.0,
+                "historical": 80,
+                "form": 80,
+                "squad": 42.5,
+                "home": 0
+              },
+              "probability": 22.3
+            },
+            "3": {
+              "team": "France",
+              "score": 22.3,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+              "shortName": "FRA",
+              "factors": {
+                "fifa": 95.0,
+                "historical": 60,
+                "form": 80,
+                "squad": 40.0,
+                "home": 0
+              },
+              "probability": 20.5
+            },
+            "4": {
+              "team": "England",
+              "score": 19.9,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+              "shortName": "ENG",
+              "factors": {
+                "fifa": 85.0,
+                "historical": 40,
+                "form": 80,
+                "squad": 37.5,
+                "home": 0
+              },
+              "probability": 18.3
+            },
+            "5": {
+              "team": "Germany",
+              "score": 17.8,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+              "shortName": "GER",
+              "factors": {
+                "fifa": 75.0,
+                "historical": 100,
+                "form": 20,
+                "squad": 35.0,
+                "home": 0
+              },
+              "probability": 16.4
+            }
+          },
+          "key_factors": [
+            "FIFA ranking (25%)",
+            "Historical performance (20%)",
+            "Recent form (25%)",
+            "Squad strength (20%)",
+            "Home advantage (10%)"
+          ],
+          "generated_at": "2026-01-30T18:25:57Z"
+        }
+      }
+    },
+    {
+      "step": 8,
+      "action": "Save results to memory and file",
+      "result": "Report saved to predictions/world_cup_winner.json",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Report saved to predictions/world_cup_winner.json",
+        "data": {
+          "filename": "predictions/world_cup_winner.json"
+        }
+      }
+    },
+    {
+      "step": 9,
+      "action": "Format output for display",
+      "result": "Results ready for display",
+      "timestamp": "2026-01-30T18:25:57Z",
+      "data": {
+        "result": "Report saved to predictions/world_cup_winner.json",
+        "data": {
+          "filename": "predictions/world_cup_winner.json"
+        }
+      }
+    }
+  ],
+  "final_output": {
+    "result": "Computed weighted scores for all teams",
+    "data": {
+      "1": {
+        "team": "Brazil",
+        "score": 24.5,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+        "shortName": "BRA",
+        "factors": {
+          "fifa": 90.0,
+          "historical": 100,
+          "form": 80,
+          "squad": 37.5,
+          "home": 0
+        },
+        "probability": 22.5
+      },
+      "2": {
+        "team": "Argentina",
+        "score": 24.3,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+        "shortName": "ARG",
+        "factors": {
+          "fifa": 100.0,
+          "historical": 80,
+          "form": 80,
+          "squad": 42.5,
+          "home": 0
+        },
+        "probability": 22.3
+      },
+      "3": {
+        "team": "France",
+        "score": 22.3,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+        "shortName": "FRA",
+        "factors": {
+          "fifa": 95.0,
+          "historical": 60,
+          "form": 80,
+          "squad": 40.0,
+          "home": 0
+        },
+        "probability": 20.5
+      },
+      "4": {
+        "team": "England",
+        "score": 19.9,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+        "shortName": "ENG",
+        "factors": {
+          "fifa": 85.0,
+          "historical": 40,
+          "form": 80,
+          "squad": 37.5,
+          "home": 0
+        },
+        "probability": 18.3
+      },
+      "5": {
+        "team": "Germany",
+        "score": 17.8,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+        "shortName": "GER",
+        "factors": {
+          "fifa": 75.0,
+          "historical": 100,
+          "form": 20,
+          "squad": 35.0,
+          "home": 0
+        },
+        "probability": 16.4
+      }
+    },
+    "top5": [
+      {
+        "team": "Brazil",
+        "score": 24.5,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+        "shortName": "BRA",
+        "factors": {
+          "fifa": 90.0,
+          "historical": 100,
+          "form": 80,
+          "squad": 37.5,
+          "home": 0
+        },
+        "probability": 22.5
+      },
+      {
+        "team": "Argentina",
+        "score": 24.3,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+        "shortName": "ARG",
+        "factors": {
+          "fifa": 100.0,
+          "historical": 80,
+          "form": 80,
+          "squad": 42.5,
+          "home": 0
+        },
+        "probability": 22.3
+      },
+      {
+        "team": "France",
+        "score": 22.3,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+        "shortName": "FRA",
+        "factors": {
+          "fifa": 95.0,
+          "historical": 60,
+          "form": 80,
+          "squad": 40.0,
+          "home": 0
+        },
+        "probability": 20.5
+      },
+      {
+        "team": "England",
+        "score": 19.9,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+        "shortName": "ENG",
+        "factors": {
+          "fifa": 85.0,
+          "historical": 40,
+          "form": 80,
+          "squad": 37.5,
+          "home": 0
+        },
+        "probability": 18.3
+      },
+      {
+        "team": "Germany",
+        "score": 17.8,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+        "shortName": "GER",
+        "factors": {
+          "fifa": 75.0,
+          "historical": 100,
+          "form": 20,
+          "squad": 35.0,
+          "home": 0
+        },
+        "probability": 16.4
+      }
+    ]
+  },
+  "workflow_status": "completed",
+  "updated_at": "2026-01-30T18:25:57Z"
+}

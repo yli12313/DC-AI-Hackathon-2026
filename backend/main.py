@@ -106,23 +106,13 @@ async def api_info():
 @app.post("/api/plan", response_model=PlanResponse)
 async def create_plan(request: GoalRequest):
     """
-    Create a workflow plan for a given goal.
-    
-    Returns a numbered plan with up to 10 steps.
+    Create a workflow plan for a given goal (up to 10 steps).
     """
     if not request.goal or not request.goal.strip():
         raise HTTPException(status_code=400, detail="Goal cannot be empty")
-    
-    plan = engine.create_plan(request.goal)
-    
-    # Convert to PlanStep models
-    plan_steps = [PlanStep(**step) for step in plan]
-    
-    return PlanResponse(
-        goal=request.goal,
-        plan=plan_steps,
-        total_steps=len(plan)
-    )
+    plan_strings = engine.plan(request.goal)
+    plan_steps = [PlanStep(step=i, action=s, description=s) for i, s in enumerate(plan_strings, 1)]
+    return PlanResponse(goal=request.goal, plan=plan_steps, total_steps=len(plan_steps))
 
 
 @app.post("/api/execute", response_model=ExecuteResponse)
@@ -136,9 +126,8 @@ async def execute_workflow(request: GoalRequest):
     if not request.goal or not request.goal.strip():
         raise HTTPException(status_code=400, detail="Goal cannot be empty")
     
-    # Create plan and execute
-    plan = engine.create_plan(request.goal)
-    result = engine.execute_plan(plan, request.goal)
+    plan = engine.plan(request.goal)
+    result = engine.execute(plan, request.goal)
     
     if result["status"] == "error":
         raise HTTPException(status_code=500, detail=result.get("error", "Execution failed"))
@@ -171,6 +160,15 @@ async def reset_workflow():
         message="Workflow engine reset successfully"
     )
 
+
+@app.get("/api/report/{filename}")
+async def get_report(filename: str):
+    """Serve prediction report file (e.g. world_cup_winner.json, player_predictions.json)."""
+    report_dir = Path(__file__).parent.parent / "predictions"
+    path = report_dir / filename
+    if not path.is_file() or path.suffix != ".json":
+        raise HTTPException(status_code=404, detail="Report not found")
+    return FileResponse(str(path), media_type="application/json")
 
 @app.get("/api/health")
 async def health_check() -> Dict[str, str]:

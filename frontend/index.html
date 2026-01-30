@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Cup 2026 Prediction Workflow</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>2026 World Cup Prediction Workflow</h1>
+      <p class="tagline">Autonomous AI workflow — goal → plan → execute → results</p>
+    </header>
+
+    <main class="main">
+      <section class="card goal-section">
+        <h2>1. Select prediction goal</h2>
+        <div class="goal-options">
+          <button type="button" class="goal-btn" data-goal="Predict the World Cup 2026 winner">Predict World Cup 2026 winner</button>
+          <button type="button" class="goal-btn" data-goal="Predict Golden Ball winner">Predict Golden Ball winner</button>
+          <button type="button" class="goal-btn" data-goal="Predict Golden Boot winner">Predict Golden Boot winner</button>
+          <button type="button" class="goal-btn" data-goal="Predict Golden Glove winner">Predict Golden Glove winner</button>
+          <button type="button" class="goal-btn" data-goal="Predict Young Player Award winner">Predict Young Player Award winner</button>
+        </div>
+        <p class="selected-goal">Selected: <strong id="selectedGoal">Predict the World Cup 2026 winner</strong></p>
+        <button type="button" id="runWorkflow" class="btn-primary">Run Workflow</button>
+      </section>
+
+      <section class="card steps-section" id="stepsSection" hidden>
+        <h2>2. Step-by-step execution</h2>
+        <p class="steps-header">Current step: <span id="currentStep">0</span>/<span id="totalSteps">10</span></p>
+        <p class="step-action" id="stepAction"></p>
+        <p class="step-result" id="stepResult"></p>
+        <div class="steps-log" id="stepsLog"></div>
+      </section>
+
+      <section class="card results-section" id="resultsSection" hidden>
+        <h2>3. Final results</h2>
+        <div class="results-panel">
+          <div id="resultsContent"></div>
+          <div class="factors" id="factorsBlock">
+            <h3>Key factors considered</h3>
+            <ul id="factorsList"></ul>
+          </div>
+          <p class="report-link" id="reportLink"></p>
+        </div>
+      </section>
+
+      <section class="error-section" id="errorSection" hidden>
+        <p id="errorMessage"></p>
+      </section>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
