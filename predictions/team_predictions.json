@@ -1,0 +1,155 @@
+{
+  "goal": "Predict the World Cup 2026 winner",
+  "predictions": {
+    "1": {
+      "team": "Argentina",
+      "score": 59.6,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+      "shortName": "ARG",
+      "fifa_rank": 1,
+      "squad_rating": 87,
+      "key_players": [
+        "Lionel Messi",
+        "Julian Alvarez",
+        "Enzo Fernandez"
+      ],
+      "confidence": "Medium"
+    },
+    "2": {
+      "team": "Brazil",
+      "score": 55.81,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
+      "shortName": "BRA",
+      "fifa_rank": 3,
+      "squad_rating": 85,
+      "key_players": [
+        "Vinicius Jr",
+        "Richarlison",
+        "Casemiro"
+      ],
+      "confidence": "Medium"
+    },
+    "3": {
+      "team": "France",
+      "score": 55.48,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+      "shortName": "FRA",
+      "fifa_rank": 2,
+      "squad_rating": 86,
+      "key_players": [
+        "Kylian Mbappe",
+        "Antoine Griezmann",
+        "Aurelien Tchouameni"
+      ],
+      "confidence": "Medium"
+    },
+    "4": {
+      "team": "England",
+      "score": 49.44,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom.svg/50px-Flag_of_the_United_Kingdom.svg.png",
+      "shortName": "ENG",
+      "fifa_rank": 4,
+      "squad_rating": 85,
+      "key_players": [
+        "Harry Kane",
+        "Jude Bellingham",
+        "Phil Foden"
+      ],
+      "confidence": "Medium"
+    },
+    "5": {
+      "team": "Spain",
+      "score": 46.4,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
+      "shortName": "ESP",
+      "fifa_rank": 5,
+      "squad_rating": 84,
+      "key_players": [
+        "Pedri",
+        "Rodri",
+        "Lamine Yamal"
+      ],
+      "confidence": "Medium"
+    },
+    "6": {
+      "team": "Germany",
+      "score": 46.31,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
+      "shortName": "GER",
+      "fifa_rank": 6,
+      "squad_rating": 84,
+      "key_players": [
+        "Jamal Musiala",
+        "Florian Wirtz",
+        "Ilkay Gundogan"
+      ],
+      "confidence": "Low"
+    },
+    "7": {
+      "team": "Netherlands",
+      "score": 40.25,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png",
+      "shortName": "NED",
+      "fifa_rank": 7,
+      "squad_rating": 83,
+      "key_players": [
+        "Virgil van Dijk",
+        "Memphis Depay",
+        "Frenkie de Jong"
+      ],
+      "confidence": "Low"
+    },
+    "8": {
+      "team": "Portugal",
+      "score": 37.49,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+      "shortName": "POR",
+      "fifa_rank": 8,
+      "squad_rating": 83,
+      "key_players": [
+        "Cristiano Ronaldo",
+        "Bruno Fernandes",
+        "Bernardo Silva"
+      ],
+      "confidence": "Low"
+    },
+    "9": {
+      "team": "Italy",
+      "score": 35.71,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/50px-Flag_of_Italy.svg.png",
+      "shortName": "ITA",
+      "fifa_rank": 10,
+      "squad_rating": 82,
+      "key_players": [
+        "Gianluigi Donnarumma",
+        "Federico Chiesa",
+        "Nicolo Barella"
+      ],
+      "confidence": "Speculative"
+    },
+    "10": {
+      "team": "Belgium",
+      "score": 34.82,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/50px-Flag_of_Belgium.svg.png",
+      "shortName": "BEL",
+      "fifa_rank": 9,
+      "squad_rating": 82,
+      "key_players": [
+        "Kevin De Bruyne",
+        "Romelu Lukaku",
+        "Jeremy Doku"
+      ],
+      "confidence": "Speculative"
+    }
+  },
+  "generated_at": "2026-01-30T17:43:23.281741Z",
+  "data_source": "Wikipedia & Team Database",
+  "algorithm_version": "2.0 - Advanced Multi-Factor Model",
+  "confidence_levels": {
+    "Very High": "Top contender with strong fundamentals",
+    "High": "Strong candidate with multiple positive factors",
+    "Medium": "Balanced chances with some concerns",
+    "Low": "Underdog with potential for upsets",
+    "Speculative": "Based on limited data or projections"
+  }
+}
