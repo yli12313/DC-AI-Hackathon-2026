@@ -2,8 +2,7 @@
 
 Autonomous AI workflow that predicts 2026 World Cup outcomes through **API-driven data** and **interpretable scoring**. Choose a goal, run the workflow, and see top-five predictions with descriptions and reasons for each result.
 
-<img width="766" height="859" alt="image" src="https://github.com/user-attachments/assets/e565dab9-45c7-4939-b135-0cd776df89ca" />
-
+<img width="383" height="430" alt="image" src="https://github.com/user-attachments/assets/a7f98757-cc1d-4bf9-b457-6687d3c57c73" />
 
 ## Features
 
