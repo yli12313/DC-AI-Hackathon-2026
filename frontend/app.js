@@ -136,6 +136,20 @@
     return d.innerHTML;
   }
 
+  var FLAGCDN_BASE = "https://flagcdn.com/40x30";
+  var TEAM_TO_ISO2 = {
+    Croatia: "hr", Argentina: "ar", France: "fr", Brazil: "br", England: "gb", Spain: "es",
+    Germany: "de", Portugal: "pt", Belgium: "be", Netherlands: "nl", Uruguay: "uy", USA: "us",
+    Mexico: "mx", Japan: "jp", "South Korea": "kr", Australia: "au", Morocco: "ma", Senegal: "sn",
+    Colombia: "co", Canada: "ca", Ecuador: "ec", Paraguay: "py", Switzerland: "ch", Scotland: "gb",
+    Austria: "at", Norway: "no", Panama: "pa", Haiti: "ht", Italy: "it"
+  };
+  function crestUrlForTeam(team) {
+    if (!team) return "";
+    var iso = TEAM_TO_ISO2[team];
+    return iso ? FLAGCDN_BASE + "/" + iso + ".png" : "";
+  }
+
   function renderFinalResults(output) {
     const top5 = output.top5 || [];
     const predictions = output.predictions || output.data || {};
@@ -153,7 +167,8 @@
       const primary = item.name || item.team || "—";
       const secondary = item.name && item.team ? " (" + item.team + ")" : "";
       const prob = item.probability != null ? item.probability + "%" : (item.score != null ? item.score : "—");
-      const crest = (item.crest && String(item.crest).trim()) || "";
+      var team = item.team || "";
+      var crest = crestUrlForTeam(team) || (item.crest && String(item.crest).trim()) || "";
       const description = item.description || "";
       const reason = item.reason || "";
       html += "<div class=\"result-card\">";

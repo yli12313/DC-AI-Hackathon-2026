@@ -1,201 +1,42 @@
 {
-  "goal": "Predict the World Cup 2026 winner",
+  "goal": "Predict Golden Ball winner",
   "plan": [
-    "Fetch current FIFA rankings data",
-    "Fetch historical World Cup performance data",
-    "Analyze team form and recent match results",
-    "Calculate predictive scores using weighted factors (FIFA 25%, Historical 20%, Form 25%, Squad 20%, Home 10%)",
-    "Generate top 5 predictions with probabilities",
+    "Fetch forward statistics",
+    "Fetch midfielder statistics",
+    "Fetch historical Golden Ball winners",
+    "Calculate player scores (goals + assists + ratings + team success)",
+    "Rank top 5 candidates with probabilities",
     "Create visualization data",
     "Generate report",
-    "Save results to memory and file",
+    "Save results to file",
     "Format output for display"
   ],
   "execution_log": [
     {
       "step": 1,
-      "action": "Fetch current FIFA rankings data",
-      "result": "Retrieved rankings for 21 qualified teams",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "action": "Fetch forward statistics",
+      "result": "Retrieved 0 forwards",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
-        "result": "Retrieved rankings for 21 qualified teams",
-        "data": [
-          {
-            "rank": 1,
-            "team": "Argentina",
-            "points": 1850,
-            "confederation": "CONMEBOL",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
-            "shortName": "ARG"
-          },
-          {
-            "rank": 2,
-            "team": "France",
-            "points": 1825,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-            "shortName": "FRA"
-          },
-          {
-            "rank": 3,
-            "team": "Brazil",
-            "points": 1800,
-            "confederation": "CONMEBOL",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-            "shortName": "BRA"
-          },
-          {
-            "rank": 3,
-            "team": "Canada",
-            "points": 1725,
-            "confederation": "CONCACAF",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-            "shortName": "CAN"
-          },
-          {
-            "rank": 4,
-            "team": "England",
-            "points": 1775,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
-            "shortName": "ENG"
-          },
-          {
-            "rank": 5,
-            "team": "Belgium",
-            "points": 1750,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/50px-Flag_of_Belgium.svg.png",
-            "shortName": "BEL"
-          },
-          {
-            "rank": 6,
-            "team": "Portugal",
-            "points": 1725,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
-            "shortName": "POR"
-          },
-          {
-            "rank": 7,
-            "team": "Netherlands",
-            "points": 1700,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/50px-Flag_of_the_Netherlands.svg.png",
-            "shortName": "NED"
-          },
-          {
-            "rank": 8,
-            "team": "Spain",
-            "points": 1675,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
-            "shortName": "ESP"
-          },
-          {
-            "rank": 8,
-            "team": "Ecuador",
-            "points": 1600,
-            "confederation": "CONMEBOL",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/50px-Flag_of_Ecuador.svg.png",
-            "shortName": "ECU"
-          },
-          {
-            "rank": 10,
-            "team": "Croatia",
-            "points": 1625,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
-            "shortName": "CRO"
-          },
-          {
-            "rank": 11,
-            "team": "USA",
-            "points": 1600,
-            "confederation": "CONCACAF",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/50px-Flag_of_the_United_States.svg.png",
-            "shortName": "USA"
-          },
-          {
-            "rank": 12,
-            "team": "Morocco",
-            "points": 1575,
-            "confederation": "CAF",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/50px-Flag_of_Morocco.svg.png",
-            "shortName": "MAR"
-          },
-          {
-            "rank": 13,
-            "team": "Mexico",
-            "points": 1550,
-            "confederation": "CONCACAF",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/50px-Flag_of_Mexico.svg.png",
-            "shortName": "MEX"
-          },
-          {
-            "rank": 15,
-            "team": "Uruguay",
-            "points": 1500,
-            "confederation": "CONMEBOL",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/50px-Flag_of_Uruguay.svg.png",
-            "shortName": "URU"
-          },
-          {
-            "rank": 16,
-            "team": "Germany",
-            "points": 1475,
-            "confederation": "UEFA",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/50px-Flag_of_Germany.svg.png",
-            "shortName": "GER"
-          },
-          {
-            "rank": 17,
-            "team": "Colombia",
-            "points": 1450,
-            "confederation": "CONMEBOL",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Colombia.svg/50px-Flag_of_Colombia.svg.png",
-            "shortName": "COL"
-          },
-          {
-            "rank": 18,
-            "team": "Senegal",
-            "points": 1425,
-            "confederation": "CAF",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/50px-Flag_of_Senegal.svg.png",
-            "shortName": "SEN"
-          },
-          {
-            "rank": 19,
-            "team": "Japan",
-            "points": 1400,
-            "confederation": "AFC",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/50px-Flag_of_Japan.svg.png",
-            "shortName": "JPN"
-          },
-          {
-            "rank": 22,
-            "team": "South Korea",
-            "points": 1325,
-            "confederation": "AFC",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/50px-Flag_of_South_Korea.svg.png",
-            "shortName": "KOR"
-          },
-          {
-            "rank": 23,
-            "team": "Australia",
-            "points": 1300,
-            "confederation": "AFC",
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/50px-Flag_of_Australia_%28converted%29.svg.png",
-            "shortName": "AUS"
-          }
-        ]
+        "result": "Retrieved 0 forwards",
+        "data": []
       }
     },
     {
       "step": 2,
-      "action": "Fetch historical World Cup performance data",
+      "action": "Fetch midfielder statistics",
+      "result": "Retrieved 0 midfielders",
+      "timestamp": "2026-01-30T19:30:18Z",
+      "data": {
+        "result": "Retrieved 0 midfielders",
+        "data": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "Fetch historical Golden Ball winners",
       "result": "Processed data from 2014, 2018, 2022 tournaments",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
         "result": "Processed data from 2014, 2018, 2022 tournaments",
         "data": {
@@ -230,418 +71,227 @@
       }
     },
     {
-      "step": 3,
-      "action": "Analyze team form and recent match results",
-      "result": "Analyzed form for 15 teams",
-      "timestamp": "2026-01-30T19:24:51Z",
-      "data": {
-        "result": "Analyzed form for 15 teams",
-        "data": {
-          "Argentina": {
-            "form": "Excellent",
-            "last_world_cup": "2022 (Winners)"
-          },
-          "France": {
-            "form": "Excellent",
-            "last_world_cup": "2022 (Finalists)"
-          },
-          "Brazil": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Canada": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "England": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Belgium": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Portugal": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Netherlands": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Spain": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Ecuador": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Croatia": {
-            "form": "Very Good",
-            "last_world_cup": "2022 (Third Place)"
-          },
-          "USA": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Morocco": {
-            "form": "Very Good",
-            "last_world_cup": "2022 (Fourth Place)"
-          },
-          "Mexico": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          },
-          "Uruguay": {
-            "form": "Poor",
-            "last_world_cup": "2022 (Group Stage)"
-          }
-        }
-      }
-    },
-    {
       "step": 4,
-      "action": "Calculate predictive scores using weighted factors (FIFA 25%, Historical 20%, Form 25%, Squad 20%, Home 10%)",
-      "result": "Computed weighted scores for all teams",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "action": "Calculate player scores (goals + assists + ratings + team success)",
+      "result": "Computed golden_ball scores",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
-        "result": "Computed weighted scores for all teams",
+        "result": "Computed golden_ball scores",
         "data": {
           "1": {
+            "name": "Lionel Messi",
             "team": "Argentina",
-            "score": 24.5,
+            "score": 101.2,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
             "shortName": "ARG",
-            "factors": {
-              "fifa": 100.0,
-              "historical": 80,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 24.6,
-            "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-            "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+            "probability": 23.0,
+            "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
           },
           "2": {
-            "team": "France",
-            "score": 22.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-            "shortName": "FRA",
-            "factors": {
-              "fifa": 95.65217391304348,
-              "historical": 60,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 22.8,
-            "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-            "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+            "name": "Cristiano Ronaldo",
+            "team": "Portugal",
+            "score": 99.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+            "shortName": "POR",
+            "probability": 22.6,
+            "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
           },
           "3": {
-            "team": "Brazil",
-            "score": 19.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-            "shortName": "BRA",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 100,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 19.8,
-            "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-          },
-          "4": {
-            "team": "Canada",
-            "score": 17.6,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-            "shortName": "CAN",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 20,
-              "form": 20,
-              "squad": 42.5,
-              "home": 100
-            },
-            "probability": 17.7,
-            "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-          },
-          "5": {
+            "name": "Harry Kane",
             "team": "England",
-            "score": 15.1,
+            "score": 83.0,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
-            "factors": {
-              "fifa": 86.95652173913044,
-              "historical": 40,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 15.2,
-            "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-            "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+            "probability": 18.9,
+            "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+          },
+          "4": {
+            "name": "Kylian Mbappe",
+            "team": "France",
+            "score": 79.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "probability": 18.1,
+            "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+          },
+          "5": {
+            "name": "Luka Modric",
+            "team": "Croatia",
+            "score": 76.7,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+            "shortName": "CRO",
+            "probability": 17.4,
+            "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
           }
         },
         "top5": [
           {
+            "name": "Lionel Messi",
             "team": "Argentina",
-            "score": 24.5,
+            "score": 101.2,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
             "shortName": "ARG",
-            "factors": {
-              "fifa": 100.0,
-              "historical": 80,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 24.6,
-            "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-            "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+            "probability": 23.0,
+            "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
           },
           {
-            "team": "France",
-            "score": 22.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-            "shortName": "FRA",
-            "factors": {
-              "fifa": 95.65217391304348,
-              "historical": 60,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 22.8,
-            "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-            "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+            "name": "Cristiano Ronaldo",
+            "team": "Portugal",
+            "score": 99.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+            "shortName": "POR",
+            "probability": 22.6,
+            "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
           },
           {
-            "team": "Brazil",
-            "score": 19.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-            "shortName": "BRA",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 100,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 19.8,
-            "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-          },
-          {
-            "team": "Canada",
-            "score": 17.6,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-            "shortName": "CAN",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 20,
-              "form": 20,
-              "squad": 42.5,
-              "home": 100
-            },
-            "probability": 17.7,
-            "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-          },
-          {
+            "name": "Harry Kane",
             "team": "England",
-            "score": 15.1,
+            "score": 83.0,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
-            "factors": {
-              "fifa": 86.95652173913044,
-              "historical": 40,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 15.2,
-            "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-            "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+            "probability": 18.9,
+            "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+          },
+          {
+            "name": "Kylian Mbappe",
+            "team": "France",
+            "score": 79.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "probability": 18.1,
+            "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+          },
+          {
+            "name": "Luka Modric",
+            "team": "Croatia",
+            "score": 76.7,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+            "shortName": "CRO",
+            "probability": 17.4,
+            "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
           }
         ]
       }
     },
     {
       "step": 5,
-      "action": "Generate top 5 predictions with probabilities",
-      "result": "Computed weighted scores for all teams",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "action": "Rank top 5 candidates with probabilities",
+      "result": "Computed golden_ball scores",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
-        "result": "Computed weighted scores for all teams",
+        "result": "Computed golden_ball scores",
         "data": {
           "1": {
+            "name": "Lionel Messi",
             "team": "Argentina",
-            "score": 24.5,
+            "score": 101.2,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
             "shortName": "ARG",
-            "factors": {
-              "fifa": 100.0,
-              "historical": 80,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 24.6,
-            "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-            "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+            "probability": 23.0,
+            "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
           },
           "2": {
-            "team": "France",
-            "score": 22.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-            "shortName": "FRA",
-            "factors": {
-              "fifa": 95.65217391304348,
-              "historical": 60,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 22.8,
-            "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-            "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+            "name": "Cristiano Ronaldo",
+            "team": "Portugal",
+            "score": 99.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+            "shortName": "POR",
+            "probability": 22.6,
+            "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
           },
           "3": {
-            "team": "Brazil",
-            "score": 19.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-            "shortName": "BRA",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 100,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 19.8,
-            "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-          },
-          "4": {
-            "team": "Canada",
-            "score": 17.6,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-            "shortName": "CAN",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 20,
-              "form": 20,
-              "squad": 42.5,
-              "home": 100
-            },
-            "probability": 17.7,
-            "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-          },
-          "5": {
+            "name": "Harry Kane",
             "team": "England",
-            "score": 15.1,
+            "score": 83.0,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
-            "factors": {
-              "fifa": 86.95652173913044,
-              "historical": 40,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 15.2,
-            "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-            "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+            "probability": 18.9,
+            "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+          },
+          "4": {
+            "name": "Kylian Mbappe",
+            "team": "France",
+            "score": 79.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "probability": 18.1,
+            "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+          },
+          "5": {
+            "name": "Luka Modric",
+            "team": "Croatia",
+            "score": 76.7,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+            "shortName": "CRO",
+            "probability": 17.4,
+            "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
           }
         },
         "top5": [
           {
+            "name": "Lionel Messi",
             "team": "Argentina",
-            "score": 24.5,
+            "score": 101.2,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
             "shortName": "ARG",
-            "factors": {
-              "fifa": 100.0,
-              "historical": 80,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 24.6,
-            "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-            "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+            "probability": 23.0,
+            "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
           },
           {
-            "team": "France",
-            "score": 22.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-            "shortName": "FRA",
-            "factors": {
-              "fifa": 95.65217391304348,
-              "historical": 60,
-              "form": 80,
-              "squad": 45.0,
-              "home": 0
-            },
-            "probability": 22.8,
-            "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-            "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+            "name": "Cristiano Ronaldo",
+            "team": "Portugal",
+            "score": 99.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+            "shortName": "POR",
+            "probability": 22.6,
+            "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
           },
           {
-            "team": "Brazil",
-            "score": 19.7,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-            "shortName": "BRA",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 100,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 19.8,
-            "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-          },
-          {
-            "team": "Canada",
-            "score": 17.6,
-            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-            "shortName": "CAN",
-            "factors": {
-              "fifa": 91.30434782608697,
-              "historical": 20,
-              "form": 20,
-              "squad": 42.5,
-              "home": 100
-            },
-            "probability": 17.7,
-            "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-            "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-          },
-          {
+            "name": "Harry Kane",
             "team": "England",
-            "score": 15.1,
+            "score": 83.0,
             "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
             "shortName": "ENG",
-            "factors": {
-              "fifa": 86.95652173913044,
-              "historical": 40,
-              "form": 20,
-              "squad": 42.5,
-              "home": 0
-            },
-            "probability": 15.2,
-            "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-            "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+            "probability": 18.9,
+            "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+          },
+          {
+            "name": "Kylian Mbappe",
+            "team": "France",
+            "score": 79.5,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+            "shortName": "FRA",
+            "probability": 18.1,
+            "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+          },
+          {
+            "name": "Luka Modric",
+            "team": "Croatia",
+            "score": 76.7,
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+            "shortName": "CRO",
+            "probability": 17.4,
+            "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+            "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
           }
         ]
       }
@@ -650,23 +300,23 @@
       "step": 6,
       "action": "Create visualization data",
       "result": "Visualization data ready",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
         "result": "Visualization data ready",
         "data": {
           "labels": [
             "Argentina",
+            "Portugal",
+            "England",
             "France",
-            "Brazil",
-            "Canada",
-            "England"
+            "Croatia"
           ],
           "values": [
-            24.6,
-            22.8,
-            19.8,
-            17.7,
-            15.2
+            23.0,
+            22.6,
+            18.9,
+            18.1,
+            17.4
           ],
           "type": "bar"
         }
@@ -676,90 +326,60 @@
       "step": 7,
       "action": "Generate report",
       "result": "Report generated",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
         "result": "Report generated",
         "data": {
           "predictions": {
             "1": {
+              "name": "Lionel Messi",
               "team": "Argentina",
-              "score": 24.5,
+              "score": 101.2,
               "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
               "shortName": "ARG",
-              "factors": {
-                "fifa": 100.0,
-                "historical": 80,
-                "form": 80,
-                "squad": 45.0,
-                "home": 0
-              },
-              "probability": 24.6,
-              "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-              "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+              "probability": 23.0,
+              "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+              "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
             },
             "2": {
-              "team": "France",
-              "score": 22.7,
-              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-              "shortName": "FRA",
-              "factors": {
-                "fifa": 95.65217391304348,
-                "historical": 60,
-                "form": 80,
-                "squad": 45.0,
-                "home": 0
-              },
-              "probability": 22.8,
-              "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-              "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+              "name": "Cristiano Ronaldo",
+              "team": "Portugal",
+              "score": 99.5,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+              "shortName": "POR",
+              "probability": 22.6,
+              "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+              "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
             },
             "3": {
-              "team": "Brazil",
-              "score": 19.7,
-              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-              "shortName": "BRA",
-              "factors": {
-                "fifa": 91.30434782608697,
-                "historical": 100,
-                "form": 20,
-                "squad": 42.5,
-                "home": 0
-              },
-              "probability": 19.8,
-              "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-              "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-            },
-            "4": {
-              "team": "Canada",
-              "score": 17.6,
-              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-              "shortName": "CAN",
-              "factors": {
-                "fifa": 91.30434782608697,
-                "historical": 20,
-                "form": 20,
-                "squad": 42.5,
-                "home": 100
-              },
-              "probability": 17.7,
-              "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-              "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-            },
-            "5": {
+              "name": "Harry Kane",
               "team": "England",
-              "score": 15.1,
+              "score": 83.0,
               "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
               "shortName": "ENG",
-              "factors": {
-                "fifa": 86.95652173913044,
-                "historical": 40,
-                "form": 20,
-                "squad": 42.5,
-                "home": 0
-              },
-              "probability": 15.2,
-              "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-              "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+              "probability": 18.9,
+              "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+              "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+            },
+            "4": {
+              "name": "Kylian Mbappe",
+              "team": "France",
+              "score": 79.5,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+              "shortName": "FRA",
+              "probability": 18.1,
+              "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+              "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+            },
+            "5": {
+              "name": "Luka Modric",
+              "team": "Croatia",
+              "score": 76.7,
+              "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+              "shortName": "CRO",
+              "probability": 17.4,
+              "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+              "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
             }
           },
           "key_factors": [
@@ -769,19 +389,19 @@
             "Squad strength (20%)",
             "Home advantage (10%)"
           ],
-          "generated_at": "2026-01-30T19:24:51Z"
+          "generated_at": "2026-01-30T19:30:18Z"
         }
       }
     },
     {
       "step": 8,
-      "action": "Save results to memory and file",
-      "result": "Report saved to predictions/world_cup_winner.json",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "action": "Save results to file",
+      "result": "Report saved to predictions/player_predictions.json",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
-        "result": "Report saved to predictions/world_cup_winner.json",
+        "result": "Report saved to predictions/player_predictions.json",
         "data": {
-          "filename": "predictions/world_cup_winner.json"
+          "filename": "predictions/player_predictions.json"
         }
       }
     },
@@ -789,182 +409,122 @@
       "step": 9,
       "action": "Format output for display",
       "result": "Results ready for display",
-      "timestamp": "2026-01-30T19:24:51Z",
+      "timestamp": "2026-01-30T19:30:18Z",
       "data": {
-        "result": "Report saved to predictions/world_cup_winner.json",
+        "result": "Report saved to predictions/player_predictions.json",
         "data": {
-          "filename": "predictions/world_cup_winner.json"
+          "filename": "predictions/player_predictions.json"
         }
       }
     }
   ],
   "final_output": {
-    "result": "Computed weighted scores for all teams",
+    "result": "Computed golden_ball scores",
     "data": {
       "1": {
+        "name": "Lionel Messi",
         "team": "Argentina",
-        "score": 24.5,
+        "score": 101.2,
         "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
         "shortName": "ARG",
-        "factors": {
-          "fifa": 100.0,
-          "historical": 80,
-          "form": 80,
-          "squad": 45.0,
-          "home": 0
-        },
-        "probability": 24.6,
-        "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-        "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+        "probability": 23.0,
+        "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
       },
       "2": {
-        "team": "France",
-        "score": 22.7,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-        "shortName": "FRA",
-        "factors": {
-          "fifa": 95.65217391304348,
-          "historical": 60,
-          "form": 80,
-          "squad": 45.0,
-          "home": 0
-        },
-        "probability": 22.8,
-        "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-        "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+        "name": "Cristiano Ronaldo",
+        "team": "Portugal",
+        "score": 99.5,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+        "shortName": "POR",
+        "probability": 22.6,
+        "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
       },
       "3": {
-        "team": "Brazil",
-        "score": 19.7,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-        "shortName": "BRA",
-        "factors": {
-          "fifa": 91.30434782608697,
-          "historical": 100,
-          "form": 20,
-          "squad": 42.5,
-          "home": 0
-        },
-        "probability": 19.8,
-        "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-        "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-      },
-      "4": {
-        "team": "Canada",
-        "score": 17.6,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-        "shortName": "CAN",
-        "factors": {
-          "fifa": 91.30434782608697,
-          "historical": 20,
-          "form": 20,
-          "squad": 42.5,
-          "home": 100
-        },
-        "probability": 17.7,
-        "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-        "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-      },
-      "5": {
+        "name": "Harry Kane",
         "team": "England",
-        "score": 15.1,
+        "score": 83.0,
         "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
         "shortName": "ENG",
-        "factors": {
-          "fifa": 86.95652173913044,
-          "historical": 40,
-          "form": 20,
-          "squad": 42.5,
-          "home": 0
-        },
-        "probability": 15.2,
-        "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-        "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+        "probability": 18.9,
+        "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+      },
+      "4": {
+        "name": "Kylian Mbappe",
+        "team": "France",
+        "score": 79.5,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+        "shortName": "FRA",
+        "probability": 18.1,
+        "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+      },
+      "5": {
+        "name": "Luka Modric",
+        "team": "Croatia",
+        "score": 76.7,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+        "shortName": "CRO",
+        "probability": 17.4,
+        "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
       }
     },
     "top5": [
       {
+        "name": "Lionel Messi",
         "team": "Argentina",
-        "score": 24.5,
+        "score": 101.2,
         "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
         "shortName": "ARG",
-        "factors": {
-          "fifa": 100.0,
-          "historical": 80,
-          "form": 80,
-          "squad": 45.0,
-          "home": 0
-        },
-        "probability": 24.6,
-        "description": "Argentina \u2013 2022 (Winners); 3 World Cup wins, FIFA rank #1.",
-        "reason": "FIFA rank (25%): 100, Historical (20%): 80, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 24.6%."
+        "probability": 23.0,
+        "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
       },
       {
-        "team": "France",
-        "score": 22.7,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-        "shortName": "FRA",
-        "factors": {
-          "fifa": 95.65217391304348,
-          "historical": 60,
-          "form": 80,
-          "squad": 45.0,
-          "home": 0
-        },
-        "probability": 22.8,
-        "description": "France \u2013 2022 (Finalists); 2 World Cup wins, FIFA rank #2.",
-        "reason": "FIFA rank (25%): 96, Historical (20%): 60, Recent form (25%): 80, Squad (20%): 45, Home (10%): 0. Weighted total \u2192 22.8%."
+        "name": "Cristiano Ronaldo",
+        "team": "Portugal",
+        "score": 99.5,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+        "shortName": "POR",
+        "probability": 22.6,
+        "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
       },
       {
-        "team": "Brazil",
-        "score": 19.7,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-        "shortName": "BRA",
-        "factors": {
-          "fifa": 91.30434782608697,
-          "historical": 100,
-          "form": 20,
-          "squad": 42.5,
-          "home": 0
-        },
-        "probability": 19.8,
-        "description": "Brazil \u2013 2022 (Group Stage); 5 World Cup wins, FIFA rank #3.",
-        "reason": "FIFA rank (25%): 91, Historical (20%): 100, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 19.8%."
-      },
-      {
-        "team": "Canada",
-        "score": 17.6,
-        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/50px-Flag_of_Canada.svg.png",
-        "shortName": "CAN",
-        "factors": {
-          "fifa": 91.30434782608697,
-          "historical": 20,
-          "form": 20,
-          "squad": 42.5,
-          "home": 100
-        },
-        "probability": 17.7,
-        "description": "Canada \u2013 2022 (Group Stage); 0 World Cup wins, FIFA rank #3.",
-        "reason": "FIFA rank (25%): 91, Historical (20%): 20, Recent form (25%): 20, Squad (20%): 42, Home (10%): 100. Weighted total \u2192 17.7%."
-      },
-      {
+        "name": "Harry Kane",
         "team": "England",
-        "score": 15.1,
+        "score": 83.0,
         "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
         "shortName": "ENG",
-        "factors": {
-          "fifa": 86.95652173913044,
-          "historical": 40,
-          "form": 20,
-          "squad": 42.5,
-          "home": 0
-        },
-        "probability": 15.2,
-        "description": "England \u2013 2022 (Group Stage); 1 World Cup wins, FIFA rank #4.",
-        "reason": "FIFA rank (25%): 87, Historical (20%): 40, Recent form (25%): 20, Squad (20%): 42, Home (10%): 0. Weighted total \u2192 15.2%."
+        "probability": 18.9,
+        "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+      },
+      {
+        "name": "Kylian Mbappe",
+        "team": "France",
+        "score": 79.5,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+        "shortName": "FRA",
+        "probability": 18.1,
+        "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+      },
+      {
+        "name": "Luka Modric",
+        "team": "Croatia",
+        "score": 76.7,
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+        "shortName": "CRO",
+        "probability": 17.4,
+        "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+        "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
       }
     ]
   },
   "workflow_status": "completed",
-  "updated_at": "2026-01-30T19:24:51Z"
+  "updated_at": "2026-01-30T19:30:18Z"
 }

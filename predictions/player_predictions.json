@@ -1,64 +1,54 @@
 {
   "predictions": {
     "1": {
-      "name": "Lamine Yamal",
-      "team": "Spain",
-      "score": 48.6,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
-      "shortName": "SPA",
-      "age": 18,
-      "goals": 2,
-      "probability": 21.4,
-      "description": "Lamine Yamal \u2013 Spain. Age 18, high potential.",
-      "reason": "Age (U21 bonus) + rating + goals/assists. Score 48.6 \u2192 21.4%."
+      "name": "Lionel Messi",
+      "team": "Argentina",
+      "score": 101.2,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/50px-Flag_of_Argentina.svg.png",
+      "shortName": "ARG",
+      "probability": 23.0,
+      "description": "Lionel Messi \u2013 Argentina. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+      "reason": "Ranked #1: honours + rating + goals/assists. Score 101.2 \u2192 23.0%."
     },
     "2": {
-      "name": "Pau Cubarsi",
-      "team": "Spain",
-      "score": 45.6,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/50px-Flag_of_Spain.svg.png",
-      "shortName": "SPA",
-      "age": 18,
-      "goals": 0,
-      "probability": 20.1,
-      "description": "Pau Cubarsi \u2013 Spain. Age 18, high potential.",
-      "reason": "Age (U21 bonus) + rating + goals/assists. Score 45.6 \u2192 20.1%."
+      "name": "Cristiano Ronaldo",
+      "team": "Portugal",
+      "score": 99.5,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/50px-Flag_of_Portugal.svg.png",
+      "shortName": "POR",
+      "probability": 22.6,
+      "description": "Cristiano Ronaldo \u2013 Portugal. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+      "reason": "Ranked #2: honours + rating + goals/assists. Score 99.5 \u2192 22.6%."
     },
     "3": {
-      "name": "Endrick",
-      "team": "Brazil",
-      "score": 45.2,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/50px-Flag_of_Brazil.svg.png",
-      "shortName": "BRA",
-      "age": 19,
-      "goals": 6,
-      "probability": 19.9,
-      "description": "Endrick \u2013 Brazil. Age 19, high potential.",
-      "reason": "Age (U21 bonus) + rating + goals/assists. Score 45.2 \u2192 19.9%."
-    },
-    "4": {
-      "name": "Warren Zaire-Emery",
-      "team": "France",
-      "score": 44.8,
-      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
-      "shortName": "FRA",
-      "age": 19,
-      "goals": 2,
-      "probability": 19.8,
-      "description": "Warren Zaire-Emery \u2013 France. Age 19, high potential.",
-      "reason": "Age (U21 bonus) + rating + goals/assists. Score 44.8 \u2192 19.8%."
-    },
-    "5": {
-      "name": "Jude Bellingham",
+      "name": "Harry Kane",
       "team": "England",
-      "score": 42.5,
+      "score": 83.0,
       "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/50px-Flag_of_England.svg.png",
       "shortName": "ENG",
-      "age": 21,
-      "goals": 5,
-      "probability": 18.7,
-      "description": "Jude Bellingham \u2013 England. Age 21, high potential.",
-      "reason": "Age (U21 bonus) + rating + goals/assists. Score 42.5 \u2192 18.7%."
+      "probability": 18.9,
+      "description": "Harry Kane \u2013 England. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+      "reason": "Ranked #3: honours + rating + goals/assists. Score 83.0 \u2192 18.9%."
+    },
+    "4": {
+      "name": "Kylian Mbappe",
+      "team": "France",
+      "score": 79.5,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/50px-Flag_of_France.svg.png",
+      "shortName": "FRA",
+      "probability": 18.1,
+      "description": "Kylian Mbappe \u2013 France. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+      "reason": "Ranked #4: honours + rating + goals/assists. Score 79.5 \u2192 18.1%."
+    },
+    "5": {
+      "name": "Luka Modric",
+      "team": "Croatia",
+      "score": 76.7,
+      "crest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Croatia.svg/50px-Flag_of_Croatia.svg.png",
+      "shortName": "CRO",
+      "probability": 17.4,
+      "description": "Luka Modric \u2013 Croatia. Ballon d'Or / World Cup Golden Ball pedigree, top international goals and caps.",
+      "reason": "Ranked #5: honours + rating + goals/assists. Score 76.7 \u2192 17.4%."
     }
   },
   "key_factors": [
@@ -68,5 +58,5 @@
     "Squad strength (20%)",
     "Home advantage (10%)"
   ],
-  "generated_at": "2026-01-30T19:24:10Z"
+  "generated_at": "2026-01-30T19:30:18Z"
 }

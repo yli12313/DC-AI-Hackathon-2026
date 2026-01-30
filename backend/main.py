@@ -33,12 +33,17 @@ app.add_middleware(
 # Initialize workflow engine
 engine = WorkflowEngine(max_steps=10)
 
-# Get frontend directory path
-frontend_dir = Path(__file__).parent.parent / "frontend"
+# Get project root and frontend directory paths
+project_root = Path(__file__).parent.parent
+frontend_dir = project_root / "frontend"
+static_assets = project_root / "static"
 
-# Mount static files for frontend
+# Mount frontend (HTML, CSS, JS) at /static
 if frontend_dir.exists():
     app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="static")
+# Mount project static folder (e.g. world_cup_trophy.png) at /assets
+if static_assets.exists():
+    app.mount("/assets", StaticFiles(directory=str(static_assets)), name="assets")
 
 
 # Pydantic models for API
