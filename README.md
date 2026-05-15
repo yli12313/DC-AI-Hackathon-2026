@@ -1,6 +1,8 @@
 # World Cup 2026 Prediction Workflow
 
-### I enjoyed this event and enjoyed building this project!
+### I enjoyed this event and enjoyed building this project! I'm happy with the project output!
+
+* **Individual Contributor**: Yingquan Li
 
 Autonomous AI workflow that predicts 2026 World Cup outcomes through **API-driven data** and **interpretable scoring**. Choose a goal, run the workflow, and see top-five predictions with descriptions and reasons for each result.
 
